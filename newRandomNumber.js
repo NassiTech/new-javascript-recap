@@ -1,11 +1,13 @@
 let randomNumber = Math.floor(Math.random() * 10) + 1;
 console.log(randomNumber);
 
+
 function headerStyleChange() {
     const header = document.getElementById("header");
     header.innerHTML = " Ready for playing the game with me?";
     header.style.color = "red";
     header.style.fontSize = "50px";
+    //animation: pulse 2s, infinite, alternate;
 }
 function header2StyleChange() {
     const header2 = document.getElementById("header2");
@@ -39,8 +41,13 @@ function Reset() {
 function button(i) {
     if (randomNumber == i) {
         document.getElementById("outputField").textContent = "You won!!! Try again ...";
+        document.getElementById("outputField").classList.add("Element1");
         randomNumber = Math.floor(Math.random() * 10) + 1;
         console.log(randomNumber);
+        setTimeout(() => {
+            document.getElementById("outputField").classList.remove("Element1");
+            document.getElementById("outputField").textContent = "";
+        }, 4000);
 
     } else if (randomNumber < i) {
         document.getElementById("outputField").textContent = "Too high";
